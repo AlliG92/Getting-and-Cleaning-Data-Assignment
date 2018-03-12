@@ -3,13 +3,8 @@ Code Book
 This code book summarizes the data fields in tidydata.txt.
 
 
-Tidy data contains 180 rows and 68 columns. 
-
-
-Each row has averaged values for each subject (1 through 30) 
-
-and activity (WALKING, WALKING_UPSTAIRS, WALKING_DOWNSTAIRS, SITTING, STANDING, LAYING)
-
+Tidy data contains 180 rows and 68 columns. Each row has averaged values for each subject (1 through 30) 
+and activity (WALKING, WALKING_UPSTAIRS, WALKING_DOWNSTAIRS, SITTING, STANDING, LAYING) 
 for the following measurements (only those pertaining to mean or standard deviation):
 
 1	tBodyAcc-mean()-X
