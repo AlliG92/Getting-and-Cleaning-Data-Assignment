@@ -9,6 +9,7 @@ to create another dataset containing the average of each variable,
 grouped by activity and subject.
 
 The run_analysis.R follows these steps:
+
 1 - Merges the training and the test sets to create one data set.
 
 2 - Extracts only the measurements on the mean and standard deviation for each measurement.
