@@ -1,20 +1,23 @@
+getwd()
+setwd("C:/Users/agray/Documents/Coursera Data Science Course/Programming Assignment Getting and Cleaning Data")
+
 library(dplyr)
 
 # read in train data
-X_train <- read.table("C:/Users/agray/Documents/Coursera Data Science Course/Programming Assignment Getting and Cleaning Data/UCI HAR Dataset/train/X_train.txt")
-Y_train <- read.table("C:/Users/agray/Documents/Coursera Data Science Course/Programming Assignment Getting and Cleaning Data/UCI HAR Dataset/train/Y_train.txt")
-Subject_train <- read.table("C:/Users/agray/Documents/Coursera Data Science Course/Programming Assignment Getting and Cleaning Data/UCI HAR Dataset/train/subject_train.txt")
+X_train <- read.table("UCI HAR Dataset/train/X_train.txt")
+Y_train <- read.table("UCI HAR Dataset/train/Y_train.txt")
+Subject_train <- read.table("UCI HAR Dataset/train/subject_train.txt")
 
 # read in test data
-X_test <- read.table("C:/Users/agray/Documents/Coursera Data Science Course/Programming Assignment Getting and Cleaning Data/UCI HAR Dataset/test/X_test.txt")
-Y_test <- read.table("C:/Users/agray/Documents/Coursera Data Science Course/Programming Assignment Getting and Cleaning Data/UCI HAR Dataset/test/Y_test.txt")
-Subject_test <- read.table("C:/Users/agray/Documents/Coursera Data Science Course/Programming Assignment Getting and Cleaning Data/UCI HAR Dataset/test/subject_test.txt")
+X_test <- read.table("UCI HAR Dataset/test/X_test.txt")
+Y_test <- read.table("UCI HAR Dataset/test/Y_test.txt")
+Subject_test <- read.table("UCI HAR Dataset/test/subject_test.txt")
 
 # read in data descriptions
-features <- read.table("C:/Users/agray/Documents/Coursera Data Science Course/Programming Assignment Getting and Cleaning Data/UCI HAR Dataset/features.txt")
+features <- read.table("UCI HAR Dataset/features.txt")
 
 # read in activity labels
-activity_labels <- read.table("C:/Users/agray/Documents/Coursera Data Science Course/Programming Assignment Getting and Cleaning Data/UCI HAR Dataset/activity_labels.txt")
+activity_labels <- read.table("UCI HAR Dataset/activity_labels.txt")
 
 # 1 - Merges the training and the test sets to create one data set.
 X_tot <- rbind(X_train, X_test)
@@ -38,4 +41,4 @@ colnames(X_tot) <- features[featureMeanSd[,1],2]
 colnames(Subject_tot) <- "subject"
 tot <- cbind(X_tot, activitylabel, Subject_tot)
 tot_mean <- tot %>% group_by(activitylabel, subject) %>% summarize_all(funs(mean))
-write.table(tot_mean, file = "C:/Users/agray/Documents/Coursera Data Science Course/Programming Assignment Getting and Cleaning Data/UCI HAR Dataset/tidydata.txt", row.names = FALSE, col.names = TRUE)
+write.table(tot_mean, file = "UCI HAR Dataset/tidydata.txt", row.names = FALSE, col.names = TRUE)
